@@ -1,4 +1,4 @@
-﻿$(document).ready(function ()
+$(document).ready(function ()
 {
     var cells = $(".cell");
     var pieces = $(".piece");
@@ -15,17 +15,18 @@
     }
 
     pieces.bind('click', function () {
-        var selected = $(this);
+        var selected = $(this).is('.piece');
 
         $("pieces:even").css("background-color", "white");
         $("pieces:odd").css("background-color", "navy");
         selected.css("background-color", "darkorange");
 
-        cells.bind('click', function (event) {
+        cells.bind('click', function () {
+            var lastSelected = $(this);
             if (selected.hasClass('red')) {
-                $(this).addClass = 'red';
+                lastSelected.addClass = 'red';
             } else if (selected.hasClass('black')) {
-                $(this).addClass = 'black';
+                lastSelected.addClass = 'black';
             }
             selected.css("background-color", "white");
         });
